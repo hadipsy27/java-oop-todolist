@@ -1,8 +1,10 @@
 package view;
 
+import entity.Todolist;
 import service.TodoListService;
 import service.TodoListServiceImpl;
 import util.InputUtil;
+
 
 public class TodoListView {
 
@@ -36,7 +38,14 @@ public class TodoListView {
     }
 
     public void addTodoList(){
+        System.out.println("MENAMBAH TODOLIST");
+        var todo = InputUtil.input("Todo (x jika batal)");
 
+        if(todo.equals("x")){
+            // Batal
+        } else {
+            todoListService.addTodoList(todo);
+        }
     }
 
     public void removeTodoList(){
